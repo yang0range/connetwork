@@ -1,16 +1,13 @@
-apply plugin: 'com.android.application'
-apply from: "${rootProject.rootDir}/config.gradle"
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply from: "${rootProject.rootDir}/config.gradle"
 android {
     compileSdkVersion project.ext.compileSdkVersion
     defaultConfig {
         minSdkVersion project.ext.minSdkVersion
         targetSdkVersion project.ext.targetSdkVersion
         versionCode project.ext.module_appVersionCode
-        versionName project.ext.module_appVersionName
-        applicationId project.ext.module_appApplicationId
     }
     buildTypes {
         release {
@@ -18,11 +15,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':library')
-  
+    api project.ext.supportDeps
+    api project.ext.androidxDeps
+    api project.ext.kotlinDeps
+
+
 
 }

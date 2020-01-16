@@ -30,20 +30,21 @@ project.ext {
 
     //引用类库的版本号
     dependVersion = [
-            androidx_version                 : '1.0.2',
+            androidx_version                 : '1.1.0',
             androidx_constraintlayout_version: '1.1.3',
-            kotlin_version                   : '$kotlin_version'
+            kotlin_version               : '1.3.50',
 
 
     ]
+
+
     //*************************类库maven地址**************************
-    kotlin_base = [kotlin_stdlib_jdk7: 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:$dependVersion.kotlin_version']
-    androidx_appcompat = [appcompat: 'androidx.appcompat:appcompat:$dependVersion.androidx_version']
-    androidx_core = [core: 'androidx.core:core-ktx:$dependVersion.androidx_version']
+    kotlin_base = [kotlin_stdlib_jdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$dependVersion.kotlin_version"]
+    androidx_appcompat = [appcompat: "androidx.appcompat:appcompat:$dependVersion.androidx_version"]
+    androidx_core = [core: "androidx.core:core-ktx:$dependVersion.androidx_version"]
     supportLibs = [
-            constraintlayout: 'androidx.constraintlayout:$dependVersion.androidx_constraintlayout_version'
+            constraintlayout: "androidx.constraintlayout:constraintlayout:$dependVersion.androidx_constraintlayout_version"
     ]
-
 
     //********************项目依赖列表**********************
     supportDeps = [supportLibs.values()]
