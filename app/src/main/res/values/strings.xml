@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ConNetwork</string>
+    <!-- 错误日志类型标识 -->
+    <string name="error_type">errors/UnhandleCatcher</string>
 </resources>

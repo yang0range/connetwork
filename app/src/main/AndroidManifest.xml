@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yang.connetwork">
 
     <application
@@ -16,6 +17,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.yang.library.loghandler.ErrorHandler"
+            android:process=":networkexeptionprocess"
+            android:taskAffinity="system.ErrorHandler">
+        <intent-filter tools:ignore="AppLinkUrlError">
+            <category android:name="android.intent.category.DEFAULT" />
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="@string/error_type" />
+
+        </intent-filter>
+        </activity>
+
+
+
+
     </application>
+
 
 </manifest>
