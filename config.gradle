@@ -32,11 +32,10 @@ project.ext {
     dependVersion = [
             androidx_version                 : '1.1.0',
             androidx_constraintlayout_version: '1.1.3',
-            kotlin_version               : '1.3.50',
-
+            kotlin_version                   : '1.3.50',
+            rxvolley_version                 : '1.1.4'
 
     ]
-
 
     //*************************类库maven地址**************************
     kotlin_base = [kotlin_stdlib_jdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$dependVersion.kotlin_version"]
@@ -45,9 +44,12 @@ project.ext {
     supportLibs = [
             constraintlayout: "androidx.constraintlayout:constraintlayout:$dependVersion.androidx_constraintlayout_version"
     ]
+    rxvolley = [rxvolley: "com.kymjs.rxvolley:rxvolley:$dependVersion.rxvolley_version"]
+
 
     //********************项目依赖列表**********************
     supportDeps = [supportLibs.values()]
     androidxDeps = [androidx_appcompat.values(), androidx_core.values()]
     kotlinDeps = [kotlin_base.values()]
+    networkDeps = [rxvolley.values()]
 }

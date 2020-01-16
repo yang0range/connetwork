@@ -23,6 +23,7 @@ dependencies {
     api project.ext.supportDeps
     api project.ext.androidxDeps
     api project.ext.kotlinDeps
+    api project.ext.networkDeps
 
 
 
