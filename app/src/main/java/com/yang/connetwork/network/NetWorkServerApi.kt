@@ -8,10 +8,10 @@ import java.util.concurrent.ConcurrentHashMap
 
 abstract class NetWorkServerApi(protected val mRelativeURL: String) {
 
-    val httpRequestType: Int
+    open val httpRequestType: Int
         get() = 1
 
-  open  val systemHeader: Map<String, String>
+  open val systemHeader: Map<String, String>
         get() = ConcurrentHashMap()
 
     protected abstract val serverUrl: String
@@ -42,7 +42,7 @@ abstract class NetWorkServerApi(protected val mRelativeURL: String) {
         return NetWorkRequestClient.httpError.interceptError(resp)
     }
 
-    fun parseResponseBase(json: JSONObject): NetWorkBasicResponse? {
+  open  fun parseResponseBase(json: JSONObject): NetWorkBasicResponse? {
         try {
             val resp = NetWorkBasicResponse(json)
             return if (resp.mStatus == 0) this.parseReponse(json) else resp

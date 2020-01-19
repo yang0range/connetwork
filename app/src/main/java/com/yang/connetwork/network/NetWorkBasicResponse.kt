@@ -3,7 +3,7 @@ package com.yang.connetwork.network
 import org.json.JSONException
 import org.json.JSONObject
 
-class NetWorkBasicResponse {
+open class NetWorkBasicResponse {
 
     var mStatus: Int = 0
 
@@ -17,12 +17,12 @@ class NetWorkBasicResponse {
     @Throws(JSONException::class)
     constructor(json: JSONObject) {
         try {
-            mStatus = Integer.valueOf(json.get("ret").toString())
+            mStatus = Integer.valueOf(json.get("errorCode").toString())
         } catch (e: Exception) {
             mStatus = NetWorkHttpError.NETWORK_EXCEPTION
         }
 
-        mMsg = json.optString("msg")
+        mMsg = json.optString("errorMsg")
     }
 
     override fun toString(): String {

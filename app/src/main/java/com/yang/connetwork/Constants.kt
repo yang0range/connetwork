@@ -10,10 +10,10 @@ object Constants {
     /**
      * 正式地址
      */
-    val RELEASE_URL = "https://www.wanandroid.com/coin/rank/1/json"
+    val RELEASE_URL = "https://www.wanandroid.com/coin/rank/"
 
     /**
      * 测试地址
      */
-    val TEST_URL = "https://www.wanandroid.com/coin/rank/2/json"
+    val TEST_URL = "https://www.wanandroid.com/coin/rank/"
 }
