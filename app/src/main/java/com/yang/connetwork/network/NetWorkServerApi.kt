@@ -9,27 +9,27 @@ import java.util.concurrent.ConcurrentHashMap
 abstract class NetWorkServerApi(protected val mRelativeURL: String) {
 
     val httpRequestType: Int
-        get() = HTTP_REQUEST_TYPE_GET
+        get() = 1
 
-    val systemHeader: Map<String, String>
+  open  val systemHeader: Map<String, String>
         get() = ConcurrentHashMap()
 
     protected abstract val serverUrl: String
 
     val url: String
-        get() = serverUrl + mRelativeURL
+        get() = this.serverUrl + this.mRelativeURL
 
-    val requestParams: HttpParams
+     val requestParams: HttpParams
         get() = NetWorkHttpParams()
 
     val tag: String
         get() = this.javaClass.simpleName
 
     val socketTimeOut: Int
-        get() = DEFAULT_SOCKET_TIME_OUT
+        get() = 60000
 
     val maxRetries: Int
-        get() = DEFAULT_MAX_RETRIES
+        get() = 0
 
     val isShouldCache: Boolean
         get() = false
@@ -45,13 +45,9 @@ abstract class NetWorkServerApi(protected val mRelativeURL: String) {
     fun parseResponseBase(json: JSONObject): NetWorkBasicResponse? {
         try {
             val resp = NetWorkBasicResponse(json)
-            return if (resp.mStatus == NetWorkBasicResponse.SUCCESS) {
-                this.parseReponse(json)
-            } else {
-                resp
-            }
-        } catch (e: JSONException) {
-            e.printStackTrace()
+            return if (resp.mStatus == 0) this.parseReponse(json) else resp
+        } catch (var3: JSONException) {
+            var3.printStackTrace()
             return null
         }
 
@@ -63,19 +59,9 @@ abstract class NetWorkServerApi(protected val mRelativeURL: String) {
     }
 
     companion object {
-
         val HTTP_REQUEST_TYPE_GET = 1
-
         val HTTP_REQUEST_TYPE_POST = 2
-
-        /**
-         * 网络连接超时时间
-         */
         val DEFAULT_SOCKET_TIME_OUT = 60000
-
-        /**
-         * 请求超时之后重连次数
-         */
         private val DEFAULT_MAX_RETRIES = 0
     }
 }

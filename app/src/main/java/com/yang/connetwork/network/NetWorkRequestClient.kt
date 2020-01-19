@@ -14,7 +14,7 @@ object NetWorkRequestClient {
     /**
      * tag日志输出
      */
-    val TAG = "CeHomeHttp"
+    val TAG = "NetWork"
 
     internal var mEnableLogging = false
 

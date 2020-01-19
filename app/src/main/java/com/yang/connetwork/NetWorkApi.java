@@ -4,6 +4,8 @@ import com.yang.connetwork.network.NetWorkServerApi;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Map;
+
 /**
  * @author yangzc
  * @data 2020/1/16 17:02
@@ -19,8 +21,20 @@ public class NetWorkApi extends NetWorkServerApi {
     @NotNull
     @Override
 
-
+    /**
+     * 调整环境
+     */
     protected String getServerUrl() {
         return BuildConfig.DEBUG ? Constants.RELEASE_URL : Constants.TEST_URL;
+    }
+
+
+    /**
+     * 请求头
+     */
+    @NotNull
+    @Override
+    public Map<String, String> getSystemHeader() {
+        return super.getSystemHeader();
     }
 }

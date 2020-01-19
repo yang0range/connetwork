@@ -105,7 +105,7 @@ class NetWorkResponseListener(
                 mListener.OnRemoteApiFinish(
                     NetWorkBasicResponse(
                         999,
-                        "数据处理异常[CeHomeResponseListener]"
+                        "数据处理异常"
                     )
                 )
             }
