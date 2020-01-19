@@ -1,5 +1,7 @@
 package com.yang.connetwork;
 
+import android.os.Build;
+
 import com.yang.connetwork.network.NetWorkServerApi;
 
 import org.jetbrains.annotations.NotNull;
@@ -25,7 +27,7 @@ public class NetWorkApi extends NetWorkServerApi {
      * 调整环境
      */
     protected String getServerUrl() {
-        return BuildConfig.DEBUG ? Constants.RELEASE_URL : Constants.TEST_URL;
+        return BuildConfig.DEBUG ? Constants.INSTANCE.getRELEASE_URL() : Constants.INSTANCE.getTEST_URL();
     }
 
 
@@ -35,6 +37,10 @@ public class NetWorkApi extends NetWorkServerApi {
     @NotNull
     @Override
     public Map<String, String> getSystemHeader() {
-        return super.getSystemHeader();
+        Map<String, String> map = super.getSystemHeader();
+        map.put("client", "android");
+        map.put("mobilebrand", Build.BRAND);
+        map.put("mobilemodel", Build.MODEL);
+        return map;
     }
 }
