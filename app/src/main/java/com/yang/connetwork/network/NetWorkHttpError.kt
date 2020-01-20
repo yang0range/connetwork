@@ -8,12 +8,12 @@ interface NetWorkHttpError {
 
     companion object {
 
-        val NOT_AVAILABLE_NETWORK_ = -1
+        var NOT_AVAILABLE_NETWORK = -1
 
-        val NETWORK_EXCEPTION = 2
+        var NETWORK_EXCEPTION = 2
 
-        val JSON_EXCEPTION = 3
+        var JSON_EXCEPTION = 3
 
-        val NOT_DATA_EXCEPTION = 4
+        var NOT_DATA_EXCEPTION = 4
     }
 }

@@ -6,6 +6,7 @@ import com.kymjs.rxvolley.RxVolley
 import com.kymjs.rxvolley.client.*
 import com.kymjs.rxvolley.http.DefaultRetryPolicy
 import com.kymjs.rxvolley.http.RequestQueue
+import com.yang.connetwork.BuildConfig
 import com.yang.library.loghandler.Log
 
 
@@ -16,7 +17,7 @@ object NetWorkRequestClient {
      */
     val TAG = "NetWork"
 
-    internal var mEnableLogging = false
+    internal var mEnableLogging = BuildConfig.DEBUG
 
 
     lateinit var httpError: NetWorkHttpError

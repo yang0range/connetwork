@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="network_unavailable">网络无法连接，请检查网络设置！</string>
+    <string name="network_timeout">网络连接超时，请重试!</string>
+    <string name="json_exception">服务器数据异常</string>
+    <string name="network_result_null">服务器未返回数据</string>
+    <string name="cookie_exception">cookie 异常</string>
+    <string name="default_exception">未知异常</string>
+    <string name="http_error_code_404">请求地址不存在，请联系管理员</string>
+    <string name="http_error_code_503">当前服务器不可用，请稍后重试</string>
+    <string name="http_error_code_500">服务器内部错误,请稍后重试</string>
+
+</resources>

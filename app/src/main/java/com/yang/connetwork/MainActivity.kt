@@ -1,24 +1,38 @@
 package com.yang.connetwork
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.yang.connetwork.base.BaseAcivity
 import com.yang.connetwork.network.APIFinishCallback
 import com.yang.connetwork.network.NetWorkBasicResponse
 import com.yang.connetwork.network.NetWorkRequestClient
-import com.yang.library.loghandler.Log.printJson
+import com.yang.connetwork.network.error.NetWorkHttpErrorHandler
+import com.yang.library.loghandler.Log
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseAcivity() {
+    override fun initListener() {
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun initData() {
         val api = GetDataListApi()
         NetWorkRequestClient.execute(api, object : APIFinishCallback {
             override fun OnRemoteApiFinish(response: NetWorkBasicResponse) {
-                printJson("ConNetWork",response.toString(), "请求JSON")
+                Log.printJson("ConNetWork", response.toString(), "请求JSON")
             }
         })
-
-
     }
+
+    override fun initView() {
+        NetWorkRequestClient.init(
+            applicationContext,
+            NetWorkHttpErrorHandler(applicationContext),
+            BuildConfig.DEBUG
+        )
+    }
+
+    override fun start() {
+    }
+
+    override fun layoutId(): Int {
+        return R.layout.activity_main
+    }
+
 }
